@@ -99,9 +99,6 @@ function h({ onSubmit: t }) {
 		className: u.wrapper,
 		children: /* @__PURE__ */ r("form", {
 			className: u.form,
-			onSubmit: (e) => {
-				e.preventDefault(), t(i);
-			},
 			children: [/* @__PURE__ */ n(m, {
 				value: i,
 				onChange: a,
