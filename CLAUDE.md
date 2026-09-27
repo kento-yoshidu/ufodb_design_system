@@ -42,7 +42,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## 関連リポジトリ
 
-- `toy_ufdb`（`ufodb_v0`本体）: Union-Find DBのコア。このリポジトリからは参照しない
+- `ufodb_v0`（本体）: Union-Find DBのコア。このリポジトリからは参照しない
 - `ufodb_studio`（UFO Studio）: 利用側。`invoke()`でRustを呼ぶ
 - `ufodb_playground`（UFO Playground）: 利用側。WASMを呼ぶ
 

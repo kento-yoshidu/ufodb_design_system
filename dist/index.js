@@ -56,10 +56,10 @@ function s({ isSidebarOpen: e, onToggleSidebar: t }) {
 	});
 }
 var c = {
-	sidePanel: "_sidePanel_x5awn_1",
-	closed: "_closed_x5awn_35",
-	row: "_row_x5awn_51",
-	detailsContent: "_detailsContent_x5awn_53"
+	sidePanel: "_sidePanel_xuezp_1",
+	closed: "_closed_xuezp_35",
+	row: "_row_xuezp_51",
+	detailsContent: "_detailsContent_xuezp_53"
 };
 //#endregion
 //#region src/layout/SidePanel/SidePanel.tsx
@@ -69,10 +69,31 @@ function l({ isOpen: e, children: t }) {
 		children: t
 	});
 }
-var u = { wrapper: "_wrapper_1x58x_1" };
+var u = { wrapper: "_wrapper_1p6sj_1" }, d = { button: "_button_a2nkt_1" };
+//#endregion
+//#region src/layout/UI/Button.tsx
+function f({ text: e, type: t = "button", onClick: r }) {
+	return /* @__PURE__ */ n("button", {
+		className: d.button,
+		type: t,
+		onClick: r,
+		children: e
+	});
+}
+var p = { input: "_input_1if7a_1" };
+//#endregion
+//#region src/layout/UI/Input.tsx
+function m({ value: e, onChange: t, placeholder: r }) {
+	return /* @__PURE__ */ n("input", {
+		className: p.input,
+		value: e,
+		onChange: (e) => t(e.target.value),
+		placeholder: r
+	});
+}
 //#endregion
 //#region src/layout/InsertKeyForm/InsertKeyForm.tsx
-function d({ onSubmit: t }) {
+function h({ onSubmit: t }) {
 	let [i, a] = e("");
 	return /* @__PURE__ */ n("div", {
 		className: u.wrapper,
@@ -81,28 +102,29 @@ function d({ onSubmit: t }) {
 			onSubmit: (e) => {
 				e.preventDefault(), t(i);
 			},
-			children: [/* @__PURE__ */ n("input", {
+			children: [/* @__PURE__ */ n(m, {
 				value: i,
-				onChange: (e) => a(e.currentTarget.value),
+				onChange: a,
 				placeholder: "Enter a key..."
-			}), /* @__PURE__ */ n("button", {
+			}), /* @__PURE__ */ n(f, {
+				text: "insert",
 				type: "submit",
-				children: "Insert"
+				onClick: () => t(i)
 			})]
 		})
 	});
 }
 //#endregion
 //#region src/layout/MergeForm/mergeForm.module.css
-var f = {};
+var g = {};
 //#endregion
 //#region src/layout/MergeForm/MergeForm.tsx
-function p({ onSubmit: t }) {
+function _({ onSubmit: t }) {
 	let [i, a] = e(""), [o, s] = e("");
 	return /* @__PURE__ */ n("div", {
-		className: f.wrapper,
+		className: g.wrapper,
 		children: /* @__PURE__ */ r("form", {
-			className: f.form,
+			className: g.form,
 			onSubmit: (e) => {
 				e.preventDefault(), t(i, o);
 			},
@@ -126,4 +148,4 @@ function p({ onSubmit: t }) {
 	});
 }
 //#endregion
-export { a as Dummy, s as Header, d as InsertKeyForm, p as MergeForm, l as SidePanel };
+export { f as Button, a as Dummy, s as Header, h as InsertKeyForm, _ as MergeForm, l as SidePanel };
