@@ -1,5 +1,6 @@
 import Dummy from "./dummy/Dummy";
 import "./styles.css";
+import "./styles/styles.css";
 
 function App() {
   return (

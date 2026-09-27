@@ -29,10 +29,10 @@ UFO Studio（Tauri）とUFO Playground（WASM）で同じUIを使うための、
 - [x] ダミーコンポーネントを作り、`src/index.ts`からexportする（`src/dummy/Dummy.tsx`）
 - [x] `pnpm build`で`dist/`にJS・`style.css`・型定義が出ることを確認する
 - [x] Studioから表示できることを確認する（手順はStudio側`docs/ROADMAP.md`の「UI共通化」）。`pnpm tauri dev`に加え、`pnpm tauri build`でビルドしたアプリをWindowsにインストールし、`useState`・CSS Modules・CSS変数が効くことを確認済み
-- [ ] Playgroundから表示できることを確認する（手順はPlayground側`docs/ROADMAP.md`の「Phase 1」）
-- [ ] git依存で配布できるようにする（方針は`CLAUDE.md`の「配布方法」）
-  - [ ] `.gitignore`から`dist`を外し、ビルド済みの`dist/`をコミットする
-  - [ ] `.gitattributes`に`dist/** linguist-generated`を書き、GitHubの差分表示で折りたたまれるようにする
+- [x] Playgroundから表示できることを確認する（手順はPlayground側`docs/ROADMAP.md`の「Phase 1」）。git依存（`github:kento-yoshidu/ufodb_design_system`）で参照し、`pnpm dev`・`pnpm build` + `pnpm preview`の両方で`useState`・CSS Modules・CSS変数・propsの型が効くことを確認済み
+- [x] git依存で配布できるようにする（方針は`CLAUDE.md`の「配布方法」）。`dist/`を含むコミットを`main`にマージ済み。利用側がブランチ指定なしで参照すると`main`が使われるため、`develop`で変更しただけでは利用側に届かない
+  - [x] `.gitignore`から`dist`を外し、ビルド済みの`dist/`をコミットする
+  - [x] `.gitattributes`に`dist/** linguist-generated`を書き、GitHubの差分表示で折りたたまれるようにする
   - [ ] （任意）CIで`pnpm build`を実行し、`git diff --exit-code dist`で`dist/`の更新漏れを検出する
 - [ ] 開発中の反映方法を決める: `dist/`を参照する形だと、変更のたびにビルドし直しが要る。`vite build --watch`を動かしておく運用で困らないかを試す
 - [ ] 本物のコンポーネントを移し終えたら、ダミーコンポーネントは削除する
@@ -43,6 +43,13 @@ UFO Studio（Tauri）とUFO Playground（WASM）で同じUIを使うための、
 
 - [ ] `Header`（Studioの`src/components/Headet.tsx`）: タイトル（`"UFDB GUI APP"`）とロゴ（`/app-icon.svg`）が固定で書かれているので、propsで受け取る形にする。`/app-icon.svg`は利用側アプリの`public/`を前提にしたパスなので、ライブラリ側に置いたままでは表示されない
 - [ ] デザイントークンとグローバルなスタイル: Studioの`src/App.css`にある`panel`・`panel__title`・`groups__item`などのグローバルクラスを、トークンと一緒にこのリポジトリへ移すか、各コンポーネントのCSS Modulesに取り込むかを決める
+  - **テーマはダーク固定**（ライト/ダークの切り替えはしない）。`prefers-color-scheme`は使わず、`:root`にダークの値を1セットだけ定義する。値はStudioの`src/App.css`の`@media (prefers-color-scheme: dark)`ブロックにあるもの（`--radius`・`--header-height`は色ではないので`:root`のものをそのまま使う）
+  - `:root`に`color-scheme: dark;`を指定する。これが無いとスクロールバーや`input`のオートフィル背景などのネイティブ部品が明るいまま残る
+  - 変数名は`--bg`・`--surface`のような役割ベースの名前のままにする（`--dark-bg`のようにしない）。将来テーマを増やす場合も値の差し替えで済むようにするため
+  - 移すトークン: `--bg`・`--surface`・`--surface-muted`・`--border`・`--text`・`--text-muted`・`--accent`・`--accent-strong`・`--accent-contrast`・`--shadow`・`--radius`・`--header-height`（Studioで定義している12個。すべて使用中）。あわせて、`.groups__item`と`input, button`で直書きしている角丸`8px`を変数にするか`--radius`に揃えるかも決める
+  - Studioの`App.css`にある`a:hover`（ダークモード用`@media`の中にだけある）は、Studioに`<a>`要素が無く効いていないので移さない
+  - このリポジトリの`src/index.css`（Viteテンプレートの名残）は`--text`・`--bg`・`--border`・`--accent`・`--shadow`を別の値で定義していて、名前が衝突する。`dist/`には入らないが、`pnpm dev`の確認ページで色が違って見える原因になるので、トークンを移すときに削除するか中身を置き換える
+  - 起動直後の白いちらつきはCSSだけでは防げないので、利用側で対策する。Studioは`tauri.conf.json`のウィンドウ設定（`backgroundColor`・`theme`）、Playgroundは`index.html`（`<meta name="color-scheme" content="dark">`や`body`へのインラインの背景色）
 - [ ] グループ一覧: 現在は`Contents.tsx`の中に直接書かれている。`groups: string[][]`を受け取って表示するだけのコンポーネントとして切り出す
 
 ## Phase 3: 操作フォームを移す
