@@ -63,52 +63,67 @@ var c = {
 };
 //#endregion
 //#region src/layout/SidePanel/SidePanel.tsx
-function l({ isOpen: e, keyValue: t, setKey: i, keyA: a, setKeyA: o, keyB: s, setKeyB: l, insert: u, handleMerge: d }) {
-	return /* @__PURE__ */ r("aside", {
+function l({ isOpen: e, children: t }) {
+	return /* @__PURE__ */ n("aside", {
 		className: `${c.sidePanel} ${e ? "" : c.closed}`,
-		children: [/* @__PURE__ */ r("section", {
-			className: "panel",
-			children: [/* @__PURE__ */ n("h2", {
-				className: "panel__title",
-				children: "キーを追加"
-			}), /* @__PURE__ */ r("form", {
-				className: c.row,
-				onSubmit: (e) => {
-					e.preventDefault(), u();
-				},
-				children: [/* @__PURE__ */ n("input", {
-					value: t,
-					onChange: (e) => i(e.currentTarget.value),
-					placeholder: "Enter a key..."
-				}), /* @__PURE__ */ n("button", {
-					type: "submit",
-					children: "Insert"
-				})]
+		children: t
+	});
+}
+var u = { wrapper: "_wrapper_1x58x_1" };
+//#endregion
+//#region src/layout/InsertKeyForm/InsertKeyForm.tsx
+function d({ onSubmit: t }) {
+	let [i, a] = e("");
+	return /* @__PURE__ */ n("div", {
+		className: u.wrapper,
+		children: /* @__PURE__ */ r("form", {
+			className: u.form,
+			onSubmit: (e) => {
+				e.preventDefault(), t(i);
+			},
+			children: [/* @__PURE__ */ n("input", {
+				value: i,
+				onChange: (e) => a(e.currentTarget.value),
+				placeholder: "Enter a key..."
+			}), /* @__PURE__ */ n("button", {
+				type: "submit",
+				children: "Insert"
 			})]
-		}), /* @__PURE__ */ n("section", {
-			className: "panel",
-			children: /* @__PURE__ */ r("div", {
-				className: c.detailsContent,
-				children: [
-					/* @__PURE__ */ n("input", {
-						value: a,
-						onChange: (e) => o(e.currentTarget.value),
-						placeholder: "Enter a key..."
-					}),
-					/* @__PURE__ */ n("input", {
-						value: s,
-						onChange: (e) => l(e.currentTarget.value),
-						placeholder: "Enter a key..."
-					}),
-					/* @__PURE__ */ n("button", {
-						type: "button",
-						onClick: d,
-						children: "Merge"
-					})
-				]
-			})
-		})]
+		})
 	});
 }
 //#endregion
-export { a as Dummy, s as Header, l as SidePanel };
+//#region src/layout/MergeForm/mergeForm.module.css
+var f = {};
+//#endregion
+//#region src/layout/MergeForm/MergeForm.tsx
+function p({ onSubmit: t }) {
+	let [i, a] = e(""), [o, s] = e("");
+	return /* @__PURE__ */ n("div", {
+		className: f.wrapper,
+		children: /* @__PURE__ */ r("form", {
+			className: f.form,
+			onSubmit: (e) => {
+				e.preventDefault(), t(i, o);
+			},
+			children: [
+				/* @__PURE__ */ n("input", {
+					value: i,
+					onChange: (e) => a(e.currentTarget.value),
+					placeholder: "Enter a key..."
+				}),
+				/* @__PURE__ */ n("input", {
+					value: o,
+					onChange: (e) => s(e.currentTarget.value),
+					placeholder: "Enter a key..."
+				}),
+				/* @__PURE__ */ n("button", {
+					type: "submit",
+					children: "Merge"
+				})
+			]
+		})
+	});
+}
+//#endregion
+export { a as Dummy, s as Header, d as InsertKeyForm, p as MergeForm, l as SidePanel };
