@@ -1,5 +1,7 @@
 import { useState } from "react";
 import styles from "./insertKeyForm.module.css";
+import Button from "../UI/Button";
+import Input from "../UI/Input";
 
 type Props = {
   onSubmit: (key: string) => void;
@@ -19,13 +21,17 @@ export default function InsertKeyForm({
           onSubmit(key);
         }}
       >
-        <input
+        <Input
           value={key}
-          onChange={(e) => setKey(e.currentTarget.value)}
+          onChange={setKey}
           placeholder="Enter a key..."
         />
 
-        <button type="submit">Insert</button>
+        <Button
+          text="insert"
+          type="submit"
+          onClick={() => onSubmit(key)}
+        />
         </form>
     </div>
   );

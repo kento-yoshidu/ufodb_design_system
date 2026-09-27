@@ -1,0 +1,17 @@
+.input {
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  padding: 0.6em 1em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  color: var(--text);
+  background-color: var(--surface);
+  transition: border-color 0.2s, background-color 0.2s;
+  outline: none;
+  white-space: nowrap;
+
+  &:focus {
+    border-color: var(--accent);
+  }
+}
