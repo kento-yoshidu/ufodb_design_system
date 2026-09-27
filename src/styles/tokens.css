@@ -1,0 +1,15 @@
+:root {
+  --bg: #15151a;
+  --surface: #1d1e24;
+  --surface-muted: #24252c;
+  --border: #2d2e36;
+  --text: #e9e7e2;
+  --text-muted: #939097;
+  --accent: #5b8def;
+  --accent-strong: #7ea4f2;
+  --accent-contrast: #17171b;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.25);
+  --radius: 10px;
+  --header-height: 64px;
+  color-scheme: dark;
+}

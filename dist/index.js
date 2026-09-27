@@ -23,5 +23,37 @@ function a({ label: a }) {
 		})
 	] });
 }
+var o = {
+	header: "_header_1f90q_1",
+	logo: "_logo_1f90q_19",
+	title: "_title_1f90q_27",
+	menuButton: "_menuButton_1f90q_45"
+};
 //#endregion
-export { a as Dummy };
+//#region src/layout/Header/Header.tsx
+function s({ isSidebarOpen: e, onToggleSidebar: t }) {
+	return /* @__PURE__ */ r("header", {
+		className: o.header,
+		children: [
+			/* @__PURE__ */ n("button", {
+				type: "button",
+				className: o.menuButton,
+				onClick: t,
+				"aria-label": "操作パネルの表示切り替え",
+				"aria-pressed": e,
+				children: "☰"
+			}),
+			/* @__PURE__ */ n("img", {
+				src: "/app-icon.svg",
+				className: o.logo,
+				alt: "UFDB GUI APPのロゴ"
+			}),
+			/* @__PURE__ */ n("h1", {
+				className: o.title,
+				children: "UFDB GUI APP"
+			})
+		]
+	});
+}
+//#endregion
+export { a as Dummy, s as Header };
