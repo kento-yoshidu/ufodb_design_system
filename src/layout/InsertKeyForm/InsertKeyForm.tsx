@@ -14,13 +14,7 @@ export default function InsertKeyForm({
 
   return (
     <div className={styles.wrapper}>
-      <form
-        className={styles.form}
-        onSubmit={(e) => {
-          e.preventDefault();
-          onSubmit(key);
-        }}
-      >
+      <form className={styles.form}>
         <Input
           value={key}
           onChange={setKey}
