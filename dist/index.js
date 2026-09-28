@@ -69,47 +69,56 @@ function l({ isOpen: e, children: t }) {
 		children: t
 	});
 }
-var u = { wrapper: "_wrapper_1p6sj_1" }, d = { button: "_button_a2nkt_1" };
+var u = { button: "_button_a2nkt_1" };
 //#endregion
 //#region src/layout/UI/Button.tsx
-function f({ text: e, type: t = "button", onClick: r }) {
+function d({ text: e, type: t = "button", onClick: r }) {
 	return /* @__PURE__ */ n("button", {
-		className: d.button,
+		className: u.button,
 		type: t,
 		onClick: r,
 		children: e
 	});
 }
-var p = { input: "_input_1if7a_1" };
+var f = { input: "_input_1if7a_1" };
 //#endregion
 //#region src/layout/UI/Input.tsx
-function m({ value: e, onChange: t, placeholder: r }) {
+function p({ value: e, onChange: t, placeholder: r }) {
 	return /* @__PURE__ */ n("input", {
-		className: p.input,
+		className: f.input,
 		value: e,
 		onChange: (e) => t(e.target.value),
 		placeholder: r
 	});
 }
+var m = { wrapper: "_wrapper_1p6sj_1" };
 //#endregion
 //#region src/layout/InsertKeyForm/InsertKeyForm.tsx
 function h({ onSubmit: t }) {
 	let [i, a] = e("");
 	return /* @__PURE__ */ n("div", {
-		className: u.wrapper,
+		className: m.wrapper,
 		children: /* @__PURE__ */ r("form", {
-			className: u.form,
+			className: m.form,
 			onSubmit: (e) => {
 				e.preventDefault(), t(i);
 			},
-			children: [/* @__PURE__ */ n(m, {
-				value: i,
-				onChange: a,
-				placeholder: "Enter a key..."
-			}), /* @__PURE__ */ n(f, {
-				text: "insert",
-				type: "submit"
-			})]
+			children: [
+				/* @__PURE__ */ n("h3", {
+					className: m.formTitle,
+					children: "キーの挿入"
+				}),
+				/* @__PURE__ */ n("p", { children: "任意の文字列を入力しInsertしてください。右側に新たなキーが表示されます。既に存在しているキーを入力してInsertした場合は変化はありません。" }),
+				/* @__PURE__ */ n(p, {
+					value: i,
+					onChange: a,
+					placeholder: "Enter a key..."
+				}),
+				/* @__PURE__ */ n(d, {
+					text: "insert",
+					type: "submit"
+				})
+			]
 		})
 	});
 }
@@ -128,17 +137,23 @@ function _({ onSubmit: t }) {
 				e.preventDefault(), t(i, o);
 			},
 			children: [
-				/* @__PURE__ */ n(m, {
+				/* @__PURE__ */ n("h3", {
+					className: g.formTitle,
+					children: "マージ"
+				}),
+				/* @__PURE__ */ n("p", { children: "キーのうち、任意のものを2つ入力しMergeしてください。一つのグループに統合されます。" }),
+				/* @__PURE__ */ n("p", { children: "存在しないキーを入力した場合、キーを新新たに作成したうえで統合されます" }),
+				/* @__PURE__ */ n(p, {
 					value: i,
 					onChange: a,
 					placeholder: "Enter a key..."
 				}),
-				/* @__PURE__ */ n(m, {
+				/* @__PURE__ */ n(p, {
 					value: o,
 					onChange: s,
 					placeholder: "Enter a key..."
 				}),
-				/* @__PURE__ */ n(f, {
+				/* @__PURE__ */ n(d, {
 					text: "Merge",
 					type: "submit"
 				})
@@ -147,4 +162,4 @@ function _({ onSubmit: t }) {
 	});
 }
 //#endregion
-export { f as Button, a as Dummy, s as Header, h as InsertKeyForm, _ as MergeForm, l as SidePanel };
+export { d as Button, a as Dummy, s as Header, h as InsertKeyForm, _ as MergeForm, l as SidePanel };

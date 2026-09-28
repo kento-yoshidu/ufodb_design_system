@@ -22,6 +22,11 @@ export default function MergeForm({
           onSubmit(keyA, keyB);
         }}
       >
+        <h3 className={styles.formTitle}>マージ</h3>
+
+        <p>キーのうち、任意のものを2つ入力しMergeしてください。一つのグループに統合されます。</p>
+        <p>存在しないキーを入力した場合、キーを新新たに作成したうえで統合されます</p>
+
         <Input
           value={keyA}
           onChange={setKeyA}
