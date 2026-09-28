@@ -1,7 +1,7 @@
 import { useState } from "react";
-import styles from "./insertKeyForm.module.css";
 import Button from "../UI/Button";
 import Input from "../UI/Input";
+import styles from "./insertKeyForm.module.css";
 
 type Props = {
   onSubmit: (key: string) => void;
@@ -21,6 +21,10 @@ export default function InsertKeyForm({
           onSubmit(key);
         }}
       >
+        <h3 className={styles.formTitle}>キーの挿入</h3>
+
+        <p>任意の文字列を入力しInsertしてください。右側に新たなキーが表示されます。既に存在しているキーを入力してInsertした場合は変化はありません。</p>
+
         <Input
           value={key}
           onChange={setKey}
