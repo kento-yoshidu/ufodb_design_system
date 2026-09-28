@@ -1,5 +1,7 @@
 import { useState } from "react";
 import styles from "./mergeForm.module.css";
+import Input from "../UI/Input";
+import Button from "../UI/Button";
 
 type Props = {
   onSubmit: (keyA: string, keyB: string) => void;
@@ -20,19 +22,22 @@ export default function MergeForm({
           onSubmit(keyA, keyB);
         }}
       >
-        <input
+        <Input
           value={keyA}
-          onChange={(e) => setKeyA(e.currentTarget.value)}
+          onChange={setKeyA}
           placeholder="Enter a key..."
         />
 
-        <input
+        <Input
           value={keyB}
-          onChange={(e) => setKeyB(e.currentTarget.value)}
+          onChange={setKeyB}
           placeholder="Enter a key..."
         />
 
-        <button type="submit">Merge</button>
+        <Button
+          text="Merge"
+          type="submit"
+        />
       </form>
     </div>
   );
