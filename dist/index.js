@@ -56,10 +56,10 @@ function s({ isSidebarOpen: e, onToggleSidebar: t }) {
 	});
 }
 var c = {
-	sidePanel: "_sidePanel_xuezp_1",
-	closed: "_closed_xuezp_35",
-	row: "_row_xuezp_51",
-	detailsContent: "_detailsContent_xuezp_53"
+	sidePanel: "_sidePanel_1f6l4_1",
+	closed: "_closed_1f6l4_33",
+	row: "_row_1f6l4_49",
+	detailsContent: "_detailsContent_1f6l4_51"
 };
 //#endregion
 //#region src/layout/SidePanel/SidePanel.tsx
