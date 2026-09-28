@@ -14,7 +14,13 @@ export default function InsertKeyForm({
 
   return (
     <div className={styles.wrapper}>
-      <form className={styles.form}>
+      <form
+        className={styles.form}
+        onSubmit={(e) => {
+          e.preventDefault();
+          onSubmit(key);
+        }}
+      >
         <Input
           value={key}
           onChange={setKey}
@@ -24,9 +30,8 @@ export default function InsertKeyForm({
         <Button
           text="insert"
           type="submit"
-          onClick={() => onSubmit(key)}
         />
-        </form>
+      </form>
     </div>
   );
 }

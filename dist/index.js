@@ -99,14 +99,16 @@ function h({ onSubmit: t }) {
 		className: u.wrapper,
 		children: /* @__PURE__ */ r("form", {
 			className: u.form,
+			onSubmit: (e) => {
+				e.preventDefault(), t(i);
+			},
 			children: [/* @__PURE__ */ n(m, {
 				value: i,
 				onChange: a,
 				placeholder: "Enter a key..."
 			}), /* @__PURE__ */ n(f, {
 				text: "insert",
-				type: "submit",
-				onClick: () => t(i)
+				type: "submit"
 			})]
 		})
 	});
@@ -126,19 +128,19 @@ function _({ onSubmit: t }) {
 				e.preventDefault(), t(i, o);
 			},
 			children: [
-				/* @__PURE__ */ n("input", {
+				/* @__PURE__ */ n(m, {
 					value: i,
-					onChange: (e) => a(e.currentTarget.value),
+					onChange: a,
 					placeholder: "Enter a key..."
 				}),
-				/* @__PURE__ */ n("input", {
+				/* @__PURE__ */ n(m, {
 					value: o,
-					onChange: (e) => s(e.currentTarget.value),
+					onChange: s,
 					placeholder: "Enter a key..."
 				}),
-				/* @__PURE__ */ n("button", {
-					type: "submit",
-					children: "Merge"
+				/* @__PURE__ */ n(f, {
+					text: "Merge",
+					type: "submit"
 				})
 			]
 		})
