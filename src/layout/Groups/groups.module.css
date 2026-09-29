@@ -1,0 +1,23 @@
+.groups {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  .group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 16px;
+    border: 2px solid #888;
+    border-radius: 8px;
+
+    .node {
+      padding: 8px 16px;
+      font-size: 18px;
+      letter-spacing: 0.15rem;
+      font-weight: 500;
+      border: 2px solid #888;
+      border-radius: 8px;
+    }
+  }
+}
