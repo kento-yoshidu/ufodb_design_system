@@ -161,5 +161,24 @@ function _({ onSubmit: t }) {
 		})
 	});
 }
+var v = {
+	groups: "_groups_10sjp_1",
+	group: "_group_10sjp_1",
+	node: "_node_10sjp_27"
+};
 //#endregion
-export { d as Button, a as Dummy, s as Header, h as InsertKeyForm, _ as MergeForm, l as SidePanel };
+//#region src/layout/Groups/Groups.tsx
+function y({ groups: e }) {
+	return /* @__PURE__ */ n("div", {
+		className: v.groups,
+		children: e.map((e) => /* @__PURE__ */ n("div", {
+			className: v.group,
+			children: e.map((e) => /* @__PURE__ */ n("p", {
+				className: v.node,
+				children: e
+			}, e))
+		}, e[0]))
+	});
+}
+//#endregion
+export { d as Button, a as Dummy, y as Groups, s as Header, h as InsertKeyForm, _ as MergeForm, l as SidePanel };
