@@ -113,6 +113,46 @@ UFO Studio（Tauri）とUFO Playground（WASM）で同じUIを使うための、
 - [ ] 各操作（`onInsert`/`onMerge`など）はコールバックで受け取り、呼び出し先（`invoke()`かWASMか）は利用側に任せる
 - [ ] Studio側ROADMAPのPhase 2で操作（SAME/SIZE/UNMERGE/SEED）が増えるので、フォームの共通の形（入力欄 + ボタン）を部品にするかを検討する
 
+## スナックバー（操作結果の通知）
+
+insert・merge（将来はunmergeも）の結果を、画面の左下に短時間表示する。今はフォームが送信後も入力値を残したままで、結果が画面に出ない。特に「既にあるキーをinsertした」「既に同じグループの2つをmergeした」ときは画面が何も変わらず、押せたのかどうかも分からない。
+
+### 決めたこと
+
+- **表示するかどうかと文言は利用側が決める**: 結果を知っているのは利用側（Studioの`make_set`・`unite`はどちらも`bool`を返す）。このリポジトリは見た目と、自動で消える動きだけを持つ。Rust側の変更は不要
+- **自動で消すタイマーはコンポーネント側に持つ**: StudioとPlaygroundで同じタイマー処理を二重に書かないため。UIだけのロジックなので、Phase 4の状態管理の置き場所とは切り離して決められる
+- **Popover API（`popover="manual"`）で浮かせる**: top layerに描画されるので、祖先の`backdrop-filter`・`overflow: hidden`の影響を受けず、`z-index`のトークンも要らない。`auto`は外側クリックやEscで閉じてしまうので使わない
+  - 開閉は属性ではなく、refに対して`showPopover()`・`hidePopover()`を呼ぶ。propsとの橋渡しは`useEffect`で書く
+  - ブラウザ既定のスタイル（`inset: 0; margin: auto`の中央寄せ、枠線、背景）を上書きする。`margin`と`padding`は`base.css`のリセットで消えるが、`inset`・`border`・`background`は指定し直す
+  - 閉じた状態は`display: none`なので、普通の`transition`だけではフェードしない。入りは`@starting-style`、出は`transition-behavior: allow-discrete`を使う。非対応の環境では瞬時に出入りするだけなので、最初はアニメーションなしで作ってよい
+  - `role="status"`は自分で付ける（popoverにしても役割は付かない）
+  - Windows（WebView2）は問題ない。macOS（WKWebView）はSafari 17以降が必要で、それより古いと`showPopover`が無く例外になる。古いmacOSにも配る場合は、存在チェックを入れる
+- **利用側では`SidePanel`の中に置かず、`Header`・`main`と兄弟の位置に置く**: top layerに出ても、CSSの継承はDOMの親から受ける。`SidePanel`の中だと、閉じたときの`pointer-events: none`を継承して、スナックバー上のボタンが押せなくなる
+
+### 論点: 縦に複数並べるか、常に1つにするか
+
+未定。propsの形が変わるので、作る前に決める。後から切り替えると破壊的変更になり、Studio・Playgroundの両方で追従が要る。
+
+- **常に1つ（新しいもので差し替える）**
+  - propsは`message`と`onClose`程度で済み、利用側のstateも1つで足りる
+  - 同じ文言が続くとタイマーが再スタートしないので、メッセージにIDか連番を持たせる必要がある
+  - 続けて操作すると、前の結果は読む前に消える。unmergeに「元に戻す」ボタンを付ける場合、次の操作をした時点でボタンごと消える
+- **縦に複数並べる**
+  - 続けて操作しても、それぞれの結果が残る。「元に戻す」も個別に押せる
+  - propsは`{ id, message }`の配列と`onClose(id)`になり、利用側で配列（追加・削除）を管理する。StudioとPlaygroundで同じ処理を書くことになるので、hookにしてこのリポジトリに置くかも合わせて決める（Phase 4の状態管理の置き場所と関係する）
+  - タイマーは1件ごとに持つ
+  - 並べる数の上限と、超えたときに古いものから消すかを決める
+  - popoverは、1件ごとではなく並べる入れ物のほうに付ける。1件ごとにpopoverにすると、それぞれがビューポート基準になり、縦にずらす位置を自分で計算することになる
+
+### 作業
+
+- [ ] 上の論点を決める
+- [ ] `Snackbar`を作り、`src/index.ts`からexportする
+- [ ] `pnpm build`し、Studio・Playgroundの両方で表示を確認する
+  - `SidePanel`を開いた状態・閉じた状態のどちらでも左下に出る
+  - ウィンドウを小さくしたときに、`SidePanel`の中身と重なって邪魔にならない
+- [ ] （後で）unmergeを入れるときに、「元に戻す」などのボタンを置けるようにする
+
 ## Phase 4: 画面全体（状態管理）の扱いを決める
 
 - [ ] `CLAUDE.md`の「未決定事項」にある状態管理の置き場所を決める。StudioとPlaygroundの両方で画面を組み立ててみて、重複している部分（操作のたびに`groups`を取り直す、など）がはっきりしてから判断する
