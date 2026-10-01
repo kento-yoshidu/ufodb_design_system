@@ -8,8 +8,9 @@
     flex-wrap: wrap;
     gap: 16px;
     padding: 16px;
-    border: 2px solid #888;
     border-radius: 8px;
+    background: color-mix(in srgb, var(--group-color) 25%, transparent);
+    border: 1px solid var(--group-color);
 
     .node {
       padding: 8px 16px;

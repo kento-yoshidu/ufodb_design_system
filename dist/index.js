@@ -161,24 +161,51 @@ function _({ onSubmit: t }) {
 		})
 	});
 }
-var v = {
-	groups: "_groups_10sjp_1",
-	group: "_group_10sjp_1",
-	node: "_node_10sjp_27"
+//#endregion
+//#region src/styles/groupPalette.ts
+var v = [
+	"#f87171",
+	"#fb923c",
+	"#facc15",
+	"#4ade80",
+	"#2dd4bf",
+	"#38bdf8",
+	"#818cf8",
+	"#c084fc"
+];
+//#endregion
+//#region src/util/groupColor.ts
+function y(e) {
+	if (e.length === 0) return v[0];
+	let t = [...e].sort()[0], n = 0;
+	for (let e = 0; e < t.length; e++) {
+		let r = t.charCodeAt(e);
+		n = n * 31 + r | 0;
+	}
+	return v[(n >>> 0) % v.length];
+}
+var b = {
+	groups: "_groups_1mbtx_1",
+	group: "_group_1mbtx_1",
+	node: "_node_1mbtx_29"
 };
 //#endregion
 //#region src/layout/Groups/Groups.tsx
-function y({ groups: e }) {
+function x({ groups: e }) {
 	return /* @__PURE__ */ n("div", {
-		className: v.groups,
-		children: e.map((e) => /* @__PURE__ */ n("div", {
-			className: v.group,
-			children: e.map((e) => /* @__PURE__ */ n("p", {
-				className: v.node,
-				children: e
-			}, e))
-		}, e[0]))
+		className: b.groups,
+		children: e.map((e) => {
+			let t = y(e);
+			return /* @__PURE__ */ n("div", {
+				style: { "--group-color": t },
+				className: b.group,
+				children: e.map((e) => /* @__PURE__ */ n("p", {
+					className: b.node,
+					children: e
+				}, e))
+			}, e[0]);
+		})
 	});
 }
 //#endregion
-export { d as Button, a as Dummy, y as Groups, s as Header, h as InsertKeyForm, _ as MergeForm, l as SidePanel };
+export { d as Button, a as Dummy, x as Groups, s as Header, h as InsertKeyForm, _ as MergeForm, l as SidePanel };
