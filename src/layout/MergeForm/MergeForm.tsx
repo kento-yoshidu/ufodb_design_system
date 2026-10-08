@@ -27,22 +27,24 @@ export default function MergeForm({
         <p>キーのうち、任意のものを2つ入力しMergeしてください。一つのグループに統合されます。</p>
         <p>存在しないキーを入力した場合、キーを新新たに作成したうえで統合されます</p>
 
-        <Input
-          value={keyA}
-          onChange={setKeyA}
-          placeholder="Enter a key..."
-        />
+        <div className={styles.row}>
+          <Input
+            value={keyA}
+            onChange={setKeyA}
+            placeholder="Enter a key..."
+          />
 
-        <Input
-          value={keyB}
-          onChange={setKeyB}
-          placeholder="Enter a key..."
-        />
+          <Input
+            value={keyB}
+            onChange={setKeyB}
+            placeholder="Enter a key..."
+          />
 
-        <Button
-          text="Merge"
-          type="submit"
-        />
+          <Button
+            text="Merge"
+            type="submit"
+          />
+        </div>
       </form>
     </div>
   );
