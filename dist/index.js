@@ -56,10 +56,10 @@ function s({ isSidebarOpen: e, onToggleSidebar: t }) {
 	});
 }
 var c = {
-	sidePanel: "_sidePanel_1f6l4_1",
-	closed: "_closed_1f6l4_33",
-	row: "_row_1f6l4_49",
-	detailsContent: "_detailsContent_1f6l4_51"
+	sidePanel: "_sidePanel_czpv0_1",
+	closed: "_closed_czpv0_27",
+	row: "_row_czpv0_37",
+	detailsContent: "_detailsContent_czpv0_39"
 };
 //#endregion
 //#region src/layout/SidePanel/SidePanel.tsx
@@ -91,7 +91,12 @@ function p({ value: e, onChange: t, placeholder: r }) {
 		placeholder: r
 	});
 }
-var m = { wrapper: "_wrapper_1p6sj_1" };
+var m = {
+	wrapper: "_wrapper_xhnes_1",
+	form: "_form_xhnes_31",
+	formTitle: "_formTitle_xhnes_41",
+	row: "_row_xhnes_49"
+};
 //#endregion
 //#region src/layout/InsertKeyForm/InsertKeyForm.tsx
 function h({ onSubmit: t }) {
@@ -109,22 +114,26 @@ function h({ onSubmit: t }) {
 					children: "キーの挿入"
 				}),
 				/* @__PURE__ */ n("p", { children: "任意の文字列を入力しInsertしてください。右側に新たなキーが表示されます。既に存在しているキーを入力してInsertした場合は変化はありません。" }),
-				/* @__PURE__ */ n(p, {
-					value: i,
-					onChange: a,
-					placeholder: "Enter a key..."
-				}),
-				/* @__PURE__ */ n(d, {
-					text: "insert",
-					type: "submit"
+				/* @__PURE__ */ r("div", {
+					className: m.row,
+					children: [/* @__PURE__ */ n(p, {
+						value: i,
+						onChange: a,
+						placeholder: "Enter a key..."
+					}), /* @__PURE__ */ n(d, {
+						text: "insert",
+						type: "submit"
+					})]
 				})
 			]
 		})
 	});
 }
-//#endregion
-//#region src/layout/MergeForm/mergeForm.module.css
-var g = {};
+var g = {
+	form: "_form_18szc_1",
+	formTitle: "_formTitle_18szc_11",
+	row: "_row_18szc_19"
+};
 //#endregion
 //#region src/layout/MergeForm/MergeForm.tsx
 function _({ onSubmit: t }) {
@@ -143,19 +152,24 @@ function _({ onSubmit: t }) {
 				}),
 				/* @__PURE__ */ n("p", { children: "キーのうち、任意のものを2つ入力しMergeしてください。一つのグループに統合されます。" }),
 				/* @__PURE__ */ n("p", { children: "存在しないキーを入力した場合、キーを新新たに作成したうえで統合されます" }),
-				/* @__PURE__ */ n(p, {
-					value: i,
-					onChange: a,
-					placeholder: "Enter a key..."
-				}),
-				/* @__PURE__ */ n(p, {
-					value: o,
-					onChange: s,
-					placeholder: "Enter a key..."
-				}),
-				/* @__PURE__ */ n(d, {
-					text: "Merge",
-					type: "submit"
+				/* @__PURE__ */ r("div", {
+					className: g.row,
+					children: [
+						/* @__PURE__ */ n(p, {
+							value: i,
+							onChange: a,
+							placeholder: "Enter a key..."
+						}),
+						/* @__PURE__ */ n(p, {
+							value: o,
+							onChange: s,
+							placeholder: "Enter a key..."
+						}),
+						/* @__PURE__ */ n(d, {
+							text: "Merge",
+							type: "submit"
+						})
+					]
 				})
 			]
 		})
@@ -185,9 +199,9 @@ function y(e) {
 	return v[(n >>> 0) % v.length];
 }
 var b = {
-	groups: "_groups_1yq95_1",
-	group: "_group_1yq95_1",
-	node: "_node_1yq95_29"
+	groups: "_groups_1662l_1",
+	group: "_group_1662l_1",
+	node: "_node_1662l_29"
 };
 //#endregion
 //#region src/layout/Groups/Groups.tsx

@@ -25,16 +25,18 @@ export default function InsertKeyForm({
 
         <p>任意の文字列を入力しInsertしてください。右側に新たなキーが表示されます。既に存在しているキーを入力してInsertした場合は変化はありません。</p>
 
-        <Input
-          value={key}
-          onChange={setKey}
-          placeholder="Enter a key..."
-        />
+        <div className={styles.row}>
+          <Input
+            value={key}
+            onChange={setKey}
+            placeholder="Enter a key..."
+          />
 
-        <Button
-          text="insert"
-          type="submit"
-        />
+          <Button
+            text="insert"
+            type="submit"
+          />
+        </div>
       </form>
     </div>
   );

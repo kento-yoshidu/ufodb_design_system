@@ -16,3 +16,8 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+
+p {
+  letter-spacing: 0.4px;
+  line-height: 1.5;
+}
