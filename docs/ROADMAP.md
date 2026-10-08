@@ -43,7 +43,11 @@ UFO Studio（Tauri）とUFO Playground（WASM）で同じUIを使うための、
 
 - [ ] `Header`（Studioの`src/components/Headet.tsx`）: タイトル（`"UFDB GUI APP"`）とロゴ（`/app-icon.svg`）が固定で書かれているので、propsで受け取る形にする。`/app-icon.svg`は利用側アプリの`public/`を前提にしたパスなので、ライブラリ側に置いたままでは表示されない
   - [x] `src/layout/Header/`に移し、`isSidebarOpen`・`onToggleSidebar`をpropsで受け取る形でexportする（`a30a232`）
-  - [ ] タイトルとロゴをpropsで受け取る（例: `title`・`logoSrc`）。現状はまだ固定のまま。Playgroundは`base`が`/ufodb_playground/`なので、`/app-icon.svg`のような`/`始まりのパスは`https://kento-yoshidu.github.io/app-icon.svg`を読みにいって404になる。利用側から`import.meta.env.BASE_URL`付きのパスや、importした画像のURLを渡せるようにする
+  - [x] タイトルとロゴをpropsで受け取る（`title?: string`・`logo?: ReactNode`）。どちらも省略可能で、省略すると`"UFDB GUI APP"`と`Logo`になる（破壊的変更ではない）
+    - ロゴは画像ファイルではなく、SVGを直接描くコンポーネント（`src/layout/UI/Logo.tsx`）としてこのリポジトリに置き、`src/index.ts`からexportする。Studioの`public/app-icon.svg`を移したもの
+    - 画像のURLを使わないので、Playground（`base`が`/ufodb_playground/`）で`/app-icon.svg`が404になる問題は起きない
+    - アプリごとにロゴを変える場合は、利用側が`logo`に別の要素を渡す
+  - [ ] Studio・Playgroundから`title`を渡す（アプリ名を出し分ける）。Studioの`public/app-icon.svg`はヘッダーからは参照されなくなるので、ほかで使っていなければ削除する
   - [x] `main`にマージして、Studio・Playgroundから`pnpm update ufodb-design-system`で取り込めるようにする（`efca889`。タイトル・ロゴは固定のままマージ）
 - [ ] デザイントークンとグローバルなスタイル: Studioの`src/App.css`にある`panel`・`panel__title`・`groups__item`などのグローバルクラスを、トークンと一緒にこのリポジトリへ移すか、各コンポーネントのCSS Modulesに取り込むかを決める
   - **テーマはダーク固定**（ライト/ダークの切り替えはしない）。`prefers-color-scheme`は使わず、`:root`にダークの値を1セットだけ定義する。値はStudioの`src/App.css`の`@media (prefers-color-scheme: dark)`ブロックにあるもの（`--radius`・`--header-height`は色ではないので`:root`のものをそのまま使う）
