@@ -1,11 +1,20 @@
+import type { ReactNode } from "react";
+import Logo from "../UI/Logo";
 import styles from "./header.module.css";
 
 type Props = {
   isSidebarOpen: boolean;
   onToggleSidebar: () => void;
+  title?: string;
+  logo?: ReactNode;
 };
 
-export default function Header({ isSidebarOpen, onToggleSidebar }: Props) {
+export default function Header({
+  isSidebarOpen,
+  onToggleSidebar,
+  title = "UFDB GUI APP",
+  logo = <Logo />,
+}: Props) {
   return (
     <header className={styles.header}>
       <button
@@ -18,13 +27,9 @@ export default function Header({ isSidebarOpen, onToggleSidebar }: Props) {
         ☰
       </button>
 
-      <img
-        src="/app-icon.svg"
-        className={styles.logo}
-        alt="UFDB GUI APPのロゴ"
-      />
+      {logo}
 
-      <h1 className={styles.title}>UFDB GUI APP</h1>
+      <h1 className={styles.title}>{title}</h1>
     </header>
   );
 }

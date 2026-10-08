@@ -7,10 +7,6 @@
   border-bottom: 1px solid var(--border);
   background-color: var(--surface);
 
-  .logo {
-    height: 26px;
-  }
-
   .title {
     color: var(--text);
     font-size: 15px;
