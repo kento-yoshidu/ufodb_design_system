@@ -223,41 +223,57 @@ function _({ onSubmit: e }) {
 		})
 	});
 }
-var v = {
+//#endregion
+//#region src/_components/ComboBox.tsx
+function v({ value: t, onChange: a, placeholder: o, options: s }) {
+	let c = e(), l = s.flat().toSorted();
+	return /* @__PURE__ */ i(n, { children: [/* @__PURE__ */ r("input", {
+		list: c,
+		value: t,
+		onChange: (e) => a(e.target.value),
+		placeholder: o
+	}), /* @__PURE__ */ r("datalist", {
+		id: c,
+		children: l.map((e) => /* @__PURE__ */ r("option", { value: e }))
+	})] });
+}
+var y = {
 	form: "_form_18szc_1",
 	formTitle: "_formTitle_18szc_11",
 	row: "_row_18szc_19"
 };
 //#endregion
 //#region src/layout/MergeForm/MergeForm.tsx
-function y({ onSubmit: e }) {
-	let [n, a] = t(""), [o, s] = t("");
+function b({ onSubmit: e, options: n }) {
+	let [a, o] = t(""), [s, c] = t("");
 	return /* @__PURE__ */ r("div", {
-		className: v.wrapper,
+		className: y.wrapper,
 		children: /* @__PURE__ */ i("form", {
-			className: v.form,
+			className: y.form,
 			onSubmit: (t) => {
-				t.preventDefault(), e(n, o);
+				t.preventDefault(), e(a, s);
 			},
 			children: [
 				/* @__PURE__ */ r("h3", {
-					className: v.formTitle,
+					className: y.formTitle,
 					children: "マージ"
 				}),
 				/* @__PURE__ */ r("p", { children: "キーのうち、任意のものを2つ入力しMergeしてください。一つのグループに統合されます。" }),
 				/* @__PURE__ */ r("p", { children: "存在しないキーを入力した場合、キーを新たに作成したうえで統合されます" }),
 				/* @__PURE__ */ i("div", {
-					className: v.row,
+					className: y.row,
 					children: [
-						/* @__PURE__ */ r(h, {
-							value: n,
-							onChange: a,
-							placeholder: "Enter a key..."
+						/* @__PURE__ */ r(v, {
+							value: a,
+							onChange: o,
+							placeholder: "Enter a key...",
+							options: n
 						}),
-						/* @__PURE__ */ r(h, {
-							value: o,
-							onChange: s,
-							placeholder: "Enter a key..."
+						/* @__PURE__ */ r(v, {
+							value: s,
+							onChange: c,
+							placeholder: "Enter a key...",
+							options: n
 						}),
 						/* @__PURE__ */ r(p, {
 							text: "Merge",
@@ -271,7 +287,7 @@ function y({ onSubmit: e }) {
 }
 //#endregion
 //#region src/styles/groupPalette.ts
-var b = [
+var x = [
 	"#f87171",
 	"#fb923c",
 	"#facc15",
@@ -283,32 +299,32 @@ var b = [
 ];
 //#endregion
 //#region src/util/groupColor.ts
-function x(e) {
-	if (e.length === 0) return b[0];
+function S(e) {
+	if (e.length === 0) return x[0];
 	let t = [...e].sort()[0], n = 0;
 	for (let e = 0; e < t.length; e++) {
 		let r = t.charCodeAt(e);
 		n = n * 31 + r | 0;
 	}
-	return b[(n >>> 0) % b.length];
+	return x[(n >>> 0) % x.length];
 }
-var S = {
+var C = {
 	groups: "_groups_1662l_1",
 	group: "_group_1662l_1",
 	node: "_node_1662l_29"
 };
 //#endregion
 //#region src/layout/Groups/Groups.tsx
-function C({ groups: e }) {
+function w({ groups: e }) {
 	return /* @__PURE__ */ r("div", {
-		className: S.groups,
+		className: C.groups,
 		children: e.map((e) => {
-			let t = x(e);
+			let t = S(e);
 			return /* @__PURE__ */ r("div", {
 				style: { "--group-color": t },
-				className: S.group,
+				className: C.group,
 				children: e.map((e) => /* @__PURE__ */ r("p", {
-					className: S.node,
+					className: C.node,
 					children: e
 				}, e))
 			}, e[0]);
@@ -316,4 +332,4 @@ function C({ groups: e }) {
 	});
 }
 //#endregion
-export { p as Button, o as Dummy, C as Groups, l as Header, _ as InsertKeyForm, s as Logo, y as MergeForm, d as SidePanel };
+export { p as Button, o as Dummy, w as Groups, l as Header, _ as InsertKeyForm, s as Logo, b as MergeForm, d as SidePanel };
