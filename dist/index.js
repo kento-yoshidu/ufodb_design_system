@@ -332,4 +332,4 @@ function w({ groups: e }) {
 	});
 }
 //#endregion
-export { p as Button, o as Dummy, w as Groups, l as Header, _ as InsertKeyForm, s as Logo, b as MergeForm, d as SidePanel };
+export { p as Button, o as Dummy, w as Groups, l as Header, _ as InsertKeyForm, s as Logo, b as MergeForm, d as SidePanel, S as groupColor };
