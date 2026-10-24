@@ -7,3 +7,4 @@ export { default as MergeForm } from "./layout/MergeForm/MergeForm";
 export { default as Button } from "./layout/UI/Button";
 export { default as Logo } from "./layout/UI/Logo";
 export { default as Groups } from "./layout/Groups/Groups";
+export { groupColor } from "./util/groupColor";
