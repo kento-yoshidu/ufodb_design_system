@@ -18,7 +18,12 @@ export default defineConfig({
     },
     rolldownOptions: {
       // Reactは利用側のものを使うので、dist/ に同梱しない
-      external: ["react", "react-dom", "react/jsx-runtime"],
+      external: [
+        "react",
+        "react-dom",
+        "react/jsx-runtime",
+        /^@xyflow\/react/,
+      ],
     },
   },
 });
