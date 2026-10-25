@@ -8,3 +8,5 @@ export { default as Button } from "./layout/UI/Button";
 export { default as Logo } from "./layout/UI/Logo";
 export { default as Groups } from "./layout/Groups/Groups";
 export { groupColor } from "./util/groupColor";
+export { default as MenuPanel } from "./_components/layout/MenuPanel";
+export type { Action, Mode } from "./_components/layout/MenuPanel";

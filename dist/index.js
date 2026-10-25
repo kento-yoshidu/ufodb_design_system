@@ -123,9 +123,9 @@ function s({ size: t = 26 }) {
 	});
 }
 var c = {
-	header: "_header_r5eps_1",
-	title: "_title_r5eps_19",
-	menuButton: "_menuButton_r5eps_37"
+	header: "_header_1jeah_1",
+	title: "_title_1jeah_19",
+	menuButton: "_menuButton_1jeah_37"
 };
 //#endregion
 //#region src/layout/Header/Header.tsx
@@ -331,5 +331,81 @@ function w({ groups: e }) {
 		})
 	});
 }
+var T = {
+	wrapper: "_wrapper_wd859_1",
+	menu: "_menu_wd859_21",
+	actions: "_actions_wd859_61",
+	item: "_item_wd859_79",
+	active: "_active_wd859_115",
+	icon: "_icon_wd859_127",
+	divider: "_divider_wd859_139",
+	toggle: "_toggle_wd859_153",
+	segment: "_segment_wd859_167",
+	selected: "_selected_wd859_189",
+	popover: "_popover_wd859_201",
+	close: "_close_wd859_225",
+	result: "_result_wd859_263"
+}, E = [
+	{
+		id: "insert",
+		icon: "+",
+		label: "Insert"
+	},
+	{
+		id: "merge",
+		icon: "⇄",
+		label: "Merge"
+	},
+	{
+		id: "same",
+		icon: "=",
+		label: "Same"
+	}
+], D = ["row", "graph"];
+function O({ active: e, onSelect: t, mode: n, onChangeMode: a, children: o }) {
+	return /* @__PURE__ */ i("div", {
+		className: T.wrapper,
+		children: [/* @__PURE__ */ i("nav", {
+			className: T.menu,
+			children: [
+				/* @__PURE__ */ r("ul", {
+					className: T.actions,
+					children: E.map((n) => /* @__PURE__ */ r("li", { children: /* @__PURE__ */ i("button", {
+						type: "button",
+						className: `${T.item} ${e === n.id ? T.active : ""}`,
+						"aria-pressed": e === n.id,
+						onClick: () => t(e === n.id ? null : n.id),
+						children: [/* @__PURE__ */ r("span", {
+							className: T.icon,
+							children: n.icon
+						}), n.label]
+					}) }, n.id))
+				}),
+				/* @__PURE__ */ r("hr", { className: T.divider }),
+				/* @__PURE__ */ r("div", {
+					className: T.toggle,
+					role: "group",
+					"aria-label": "表示の切り替え",
+					children: D.map((e) => /* @__PURE__ */ r("button", {
+						type: "button",
+						className: `${T.segment} ${n === e ? T.selected : ""}`,
+						"aria-pressed": n === e,
+						onClick: () => a(e),
+						children: e
+					}, e))
+				})
+			]
+		}), e && /* @__PURE__ */ i("section", {
+			className: T.popover,
+			children: [/* @__PURE__ */ r("button", {
+				type: "button",
+				className: T.close,
+				"aria-label": "閉じる",
+				onClick: () => t(null),
+				children: "×"
+			}), o]
+		})]
+	});
+}
 //#endregion
-export { p as Button, o as Dummy, w as Groups, l as Header, _ as InsertKeyForm, s as Logo, b as MergeForm, d as SidePanel, S as groupColor };
+export { p as Button, o as Dummy, w as Groups, l as Header, _ as InsertKeyForm, s as Logo, O as MenuPanel, b as MergeForm, d as SidePanel, S as groupColor };
