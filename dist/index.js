@@ -1,31 +1,33 @@
 import { useId as e, useState as t } from "react";
 import { Fragment as n, jsx as r, jsxs as i } from "react/jsx-runtime";
-var a = {
+import "@xyflow/react/dist/style.css";
+import { Background as a, ReactFlow as o } from "@xyflow/react";
+var s = {
 	p: "_p_1mohy_1",
 	label: "_label_1mohy_9"
 };
 //#endregion
 //#region src/dummy/Dummy.tsx
-function o({ label: e }) {
-	let [o, s] = t(0);
+function c({ label: e }) {
+	let [a, o] = t(0);
 	return /* @__PURE__ */ i(n, { children: [
 		/* @__PURE__ */ r("button", {
-			onClick: () => s(o + 1),
+			onClick: () => o(a + 1),
 			children: "+1"
 		}),
 		/* @__PURE__ */ i("p", {
-			className: a.label,
+			className: s.label,
 			children: ["label = ", e]
 		}),
 		/* @__PURE__ */ i("p", {
-			className: a.p,
-			children: ["count = ", o]
+			className: s.p,
+			children: ["count = ", a]
 		})
 	] });
 }
 //#endregion
 //#region src/layout/UI/Logo.tsx
-function s({ size: t = 26 }) {
+function l({ size: t = 26 }) {
 	let n = e();
 	return /* @__PURE__ */ i("svg", {
 		xmlns: "http://www.w3.org/2000/svg",
@@ -122,20 +124,20 @@ function s({ size: t = 26 }) {
 		]
 	});
 }
-var c = {
+var u = {
 	header: "_header_1jeah_1",
 	title: "_title_1jeah_19",
 	menuButton: "_menuButton_1jeah_37"
 };
 //#endregion
 //#region src/layout/Header/Header.tsx
-function l({ isSidebarOpen: e, onToggleSidebar: t, title: n = "UFDB GUI APP", logo: a = /* @__PURE__ */ r(s, {}) }) {
+function d({ isSidebarOpen: e, onToggleSidebar: t, title: n = "UFDB GUI APP", logo: a = /* @__PURE__ */ r(l, {}) }) {
 	return /* @__PURE__ */ i("header", {
-		className: c.header,
+		className: u.header,
 		children: [
 			/* @__PURE__ */ r("button", {
 				type: "button",
-				className: c.menuButton,
+				className: u.menuButton,
 				onClick: t,
 				"aria-label": "操作パネルの表示切り替え",
 				"aria-pressed": e,
@@ -143,13 +145,13 @@ function l({ isSidebarOpen: e, onToggleSidebar: t, title: n = "UFDB GUI APP", lo
 			}),
 			a,
 			/* @__PURE__ */ r("h1", {
-				className: c.title,
+				className: u.title,
 				children: n
 			})
 		]
 	});
 }
-var u = {
+var f = {
 	sidePanel: "_sidePanel_czpv0_1",
 	closed: "_closed_czpv0_27",
 	row: "_row_czpv0_37",
@@ -157,35 +159,35 @@ var u = {
 };
 //#endregion
 //#region src/layout/SidePanel/SidePanel.tsx
-function d({ isOpen: e, children: t }) {
+function p({ isOpen: e, children: t }) {
 	return /* @__PURE__ */ r("aside", {
-		className: `${u.sidePanel} ${e ? "" : u.closed}`,
+		className: `${f.sidePanel} ${e ? "" : f.closed}`,
 		children: t
 	});
 }
-var f = { button: "_button_a2nkt_1" };
+var m = { button: "_button_a2nkt_1" };
 //#endregion
 //#region src/layout/UI/Button.tsx
-function p({ text: e, type: t = "button", onClick: n }) {
+function h({ text: e, type: t = "button", onClick: n }) {
 	return /* @__PURE__ */ r("button", {
-		className: f.button,
+		className: m.button,
 		type: t,
 		onClick: n,
 		children: e
 	});
 }
-var m = { input: "_input_1if7a_1" };
+var g = { input: "_input_1if7a_1" };
 //#endregion
 //#region src/layout/UI/Input.tsx
-function h({ value: e, onChange: t, placeholder: n }) {
+function _({ value: e, onChange: t, placeholder: n }) {
 	return /* @__PURE__ */ r("input", {
-		className: m.input,
+		className: g.input,
 		value: e,
 		onChange: (e) => t(e.target.value),
 		placeholder: n
 	});
 }
-var g = {
+var v = {
 	wrapper: "_wrapper_xhnes_1",
 	form: "_form_xhnes_31",
 	formTitle: "_formTitle_xhnes_41",
@@ -193,28 +195,28 @@ var g = {
 };
 //#endregion
 //#region src/layout/InsertKeyForm/InsertKeyForm.tsx
-function _({ onSubmit: e }) {
+function y({ onSubmit: e }) {
 	let [n, a] = t("");
 	return /* @__PURE__ */ r("div", {
-		className: g.wrapper,
+		className: v.wrapper,
 		children: /* @__PURE__ */ i("form", {
-			className: g.form,
+			className: v.form,
 			onSubmit: (t) => {
 				t.preventDefault(), e(n);
 			},
 			children: [
 				/* @__PURE__ */ r("h3", {
-					className: g.formTitle,
+					className: v.formTitle,
 					children: "キーの挿入"
 				}),
 				/* @__PURE__ */ r("p", { children: "任意の文字列を入力しInsertしてください。右側に新たなキーが表示されます。既に存在しているキーを入力してInsertした場合は変化はありません。" }),
 				/* @__PURE__ */ i("div", {
-					className: g.row,
-					children: [/* @__PURE__ */ r(h, {
+					className: v.row,
+					children: [/* @__PURE__ */ r(_, {
 						value: n,
 						onChange: a,
 						placeholder: "Enter a key..."
-					}), /* @__PURE__ */ r(p, {
+					}), /* @__PURE__ */ r(h, {
 						text: "insert",
 						type: "submit"
 					})]
@@ -225,7 +227,7 @@ function _({ onSubmit: e }) {
 }
 //#endregion
 //#region src/_components/ComboBox.tsx
-function v({ value: t, onChange: a, placeholder: o, options: s }) {
+function b({ value: t, onChange: a, placeholder: o, options: s }) {
 	let c = e(), l = s.flat().toSorted();
 	return /* @__PURE__ */ i(n, { children: [/* @__PURE__ */ r("input", {
 		list: c,
@@ -237,45 +239,45 @@ function v({ value: t, onChange: a, placeholder: o, options: s }) {
 		children: l.map((e) => /* @__PURE__ */ r("option", { value: e }))
 	})] });
 }
-var y = {
+var x = {
 	form: "_form_18szc_1",
 	formTitle: "_formTitle_18szc_11",
 	row: "_row_18szc_19"
 };
 //#endregion
 //#region src/layout/MergeForm/MergeForm.tsx
-function b({ onSubmit: e, options: n }) {
+function S({ onSubmit: e, options: n }) {
 	let [a, o] = t(""), [s, c] = t("");
 	return /* @__PURE__ */ r("div", {
-		className: y.wrapper,
+		className: x.wrapper,
 		children: /* @__PURE__ */ i("form", {
-			className: y.form,
+			className: x.form,
 			onSubmit: (t) => {
 				t.preventDefault(), e(a, s);
 			},
 			children: [
 				/* @__PURE__ */ r("h3", {
-					className: y.formTitle,
+					className: x.formTitle,
 					children: "マージ"
 				}),
 				/* @__PURE__ */ r("p", { children: "キーのうち、任意のものを2つ入力しMergeしてください。一つのグループに統合されます。" }),
 				/* @__PURE__ */ r("p", { children: "存在しないキーを入力した場合、キーを新たに作成したうえで統合されます" }),
 				/* @__PURE__ */ i("div", {
-					className: y.row,
+					className: x.row,
 					children: [
-						/* @__PURE__ */ r(v, {
+						/* @__PURE__ */ r(b, {
 							value: a,
 							onChange: o,
 							placeholder: "Enter a key...",
 							options: n
 						}),
-						/* @__PURE__ */ r(v, {
+						/* @__PURE__ */ r(b, {
 							value: s,
 							onChange: c,
 							placeholder: "Enter a key...",
 							options: n
 						}),
-						/* @__PURE__ */ r(p, {
+						/* @__PURE__ */ r(h, {
 							text: "Merge",
 							type: "submit"
 						})
@@ -287,7 +289,7 @@ function b({ onSubmit: e, options: n }) {
 }
 //#endregion
 //#region src/styles/groupPalette.ts
-var x = [
+var C = [
 	"#f87171",
 	"#fb923c",
 	"#facc15",
@@ -299,39 +301,39 @@ var x = [
 ];
 //#endregion
 //#region src/util/groupColor.ts
-function S(e) {
-	if (e.length === 0) return x[0];
+function w(e) {
+	if (e.length === 0) return C[0];
 	let t = [...e].sort()[0], n = 0;
 	for (let e = 0; e < t.length; e++) {
 		let r = t.charCodeAt(e);
 		n = n * 31 + r | 0;
 	}
-	return x[(n >>> 0) % x.length];
+	return C[(n >>> 0) % C.length];
 }
-var C = {
+var T = {
 	groups: "_groups_1662l_1",
 	group: "_group_1662l_1",
 	node: "_node_1662l_29"
 };
 //#endregion
 //#region src/layout/Groups/Groups.tsx
-function w({ groups: e }) {
+function E({ groups: e }) {
 	return /* @__PURE__ */ r("div", {
-		className: C.groups,
+		className: T.groups,
 		children: e.map((e) => {
-			let t = S(e);
+			let t = w(e);
 			return /* @__PURE__ */ r("div", {
 				style: { "--group-color": t },
-				className: C.group,
+				className: T.group,
 				children: e.map((e) => /* @__PURE__ */ r("p", {
-					className: C.node,
+					className: T.node,
 					children: e
 				}, e))
 			}, e[0]);
 		})
 	});
 }
-var T = {
+var D = {
 	wrapper: "_wrapper_wd859_1",
 	menu: "_menu_wd859_21",
 	actions: "_actions_wd859_61",
@@ -345,7 +347,7 @@ var T = {
 	popover: "_popover_wd859_201",
 	close: "_close_wd859_225",
 	result: "_result_wd859_263"
-}, E = [
+}, O = [
 	{
 		id: "insert",
 		icon: "+",
@@ -361,34 +363,34 @@ var T = {
 		icon: "=",
 		label: "Same"
 	}
-], D = ["row", "graph"];
-function O({ active: e, onSelect: t, mode: n, onChangeMode: a, children: o }) {
+], k = ["row", "graph"];
+function A({ active: e, onSelect: t, mode: n, onChangeMode: a, children: o }) {
 	return /* @__PURE__ */ i("div", {
-		className: T.wrapper,
+		className: D.wrapper,
 		children: [/* @__PURE__ */ i("nav", {
-			className: T.menu,
+			className: D.menu,
 			children: [
 				/* @__PURE__ */ r("ul", {
-					className: T.actions,
-					children: E.map((n) => /* @__PURE__ */ r("li", { children: /* @__PURE__ */ i("button", {
+					className: D.actions,
+					children: O.map((n) => /* @__PURE__ */ r("li", { children: /* @__PURE__ */ i("button", {
 						type: "button",
-						className: `${T.item} ${e === n.id ? T.active : ""}`,
+						className: `${D.item} ${e === n.id ? D.active : ""}`,
 						"aria-pressed": e === n.id,
 						onClick: () => t(e === n.id ? null : n.id),
 						children: [/* @__PURE__ */ r("span", {
-							className: T.icon,
+							className: D.icon,
 							children: n.icon
 						}), n.label]
 					}) }, n.id))
 				}),
-				/* @__PURE__ */ r("hr", { className: T.divider }),
+				/* @__PURE__ */ r("hr", { className: D.divider }),
 				/* @__PURE__ */ r("div", {
-					className: T.toggle,
+					className: D.toggle,
 					role: "group",
 					"aria-label": "表示の切り替え",
-					children: D.map((e) => /* @__PURE__ */ r("button", {
+					children: k.map((e) => /* @__PURE__ */ r("button", {
 						type: "button",
-						className: `${T.segment} ${n === e ? T.selected : ""}`,
+						className: `${D.segment} ${n === e ? D.selected : ""}`,
 						"aria-pressed": n === e,
 						onClick: () => a(e),
 						children: e
@@ -396,10 +398,10 @@ function O({ active: e, onSelect: t, mode: n, onChangeMode: a, children: o }) {
 				})
 			]
 		}), e && /* @__PURE__ */ i("section", {
-			className: T.popover,
+			className: D.popover,
 			children: [/* @__PURE__ */ r("button", {
 				type: "button",
-				className: T.close,
+				className: D.close,
 				"aria-label": "閉じる",
 				onClick: () => t(null),
 				children: "×"
@@ -407,5 +409,74 @@ function O({ active: e, onSelect: t, mode: n, onChangeMode: a, children: o }) {
 		})]
 	});
 }
+var j = {
+	wrapper: "_wrapper_10kdc_1",
+	node: "_node_10kdc_11",
+	label: "_label_10kdc_39",
+	edge: "_edge_10kdc_71"
+}, M = 80, N = 120, P = 20;
+function F(e) {
+	let t = /* @__PURE__ */ new Map();
+	for (let n of e.nodes) t.set(n, []);
+	for (let { source: n, target: r } of e.edges) t.get(n).push(r), t.get(r).push(n);
+	let n = /* @__PURE__ */ new Set(), r = [], i = 0;
+	for (let a of e.nodes) {
+		if (n.has(a)) continue;
+		let e = [], o = [a];
+		for (n.add(a); o.length > 0;) {
+			e.push(o);
+			let r = [];
+			for (let e of o) for (let i of t.get(e)) n.has(i) || (n.add(i), r.push(i));
+			o = r;
+		}
+		let s = e.flat(), c = Math.max(...e.map((e) => e.length)) * M;
+		e.forEach((e, t) => {
+			let n = e.length * M;
+			e.forEach((e, a) => {
+				r.push({
+					key: e,
+					x: i + (c - n) / 2 + a * M,
+					y: t * N,
+					group: s
+				});
+			});
+		}), i += c + P;
+	}
+	return r;
+}
 //#endregion
-export { p as Button, o as Dummy, w as Groups, l as Header, _ as InsertKeyForm, s as Logo, O as MenuPanel, b as MergeForm, d as SidePanel, S as groupColor };
+//#region src/_components/views/Graph.tsx
+function I({ graph: e }) {
+	let t = F(e), n = new Map(t.map((e) => [e.key, w(e.group)])), i = F(e).map((e) => ({
+		id: e.key,
+		position: {
+			x: e.x,
+			y: e.y
+		},
+		data: { label: /* @__PURE__ */ r("span", {
+			className: j.label,
+			title: e.key,
+			children: e.key
+		}) },
+		className: j.node,
+		style: { "--group-color": n.get(e.key) }
+	})), s = e.edges.map((e) => ({
+		id: `${e.source}-${e.target}`,
+		source: e.source,
+		target: e.target,
+		className: j.edge,
+		type: "straight",
+		style: { stroke: n.get(e.source) }
+	}));
+	return /* @__PURE__ */ r("div", {
+		className: j.wrapper,
+		children: /* @__PURE__ */ r(o, {
+			nodes: i,
+			edges: s,
+			fitView: !0,
+			children: /* @__PURE__ */ r(a, {})
+		})
+	});
+}
+//#endregion
+export { h as Button, c as Dummy, I as Graph, E as Groups, d as Header, y as InsertKeyForm, l as Logo, A as MenuPanel, S as MergeForm, p as SidePanel, w as groupColor };
