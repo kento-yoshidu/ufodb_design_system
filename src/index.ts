@@ -12,3 +12,4 @@ export { groupColor } from "./util/groupColor";
 export { default as MenuPanel } from "./_components/layout/MenuPanel";
 export { default as Graph } from "./_components/views/Graph";
 export type { Action, Mode } from "./_components/layout/MenuPanel";
+export type { GraphData } from "./types/index";
