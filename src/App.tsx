@@ -1,10 +1,15 @@
-import Dummy from "./dummy/Dummy";
-import "./styles.css";
+import MenuPanel from "./_components/layout/MenuPanel";
 import "./styles/styles.css";
 
 function App() {
   return (
-    <Dummy label="dummy" />
+    <MenuPanel
+      active={"merge"}
+      onSelect={() => {}}
+      onChangeMode={() => {}}
+      mode="graph"
+    >
+    </MenuPanel>
   );
 }
 

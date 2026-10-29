@@ -1,56 +1,56 @@
-import { useId as e, useState as t } from "react";
-import { Fragment as n, jsx as r, jsxs as i } from "react/jsx-runtime";
+import { Fragment as e, useId as t, useState as n } from "react";
+import { Fragment as r, jsx as i, jsxs as a } from "react/jsx-runtime";
 import "@xyflow/react/dist/style.css";
-import { Background as a, ReactFlow as o } from "@xyflow/react";
-var s = {
+import { Background as o, ReactFlow as s } from "@xyflow/react";
+var c = {
 	p: "_p_1mohy_1",
 	label: "_label_1mohy_9"
 };
 //#endregion
 //#region src/dummy/Dummy.tsx
-function c({ label: e }) {
-	let [a, o] = t(0);
-	return /* @__PURE__ */ i(n, { children: [
-		/* @__PURE__ */ r("button", {
-			onClick: () => o(a + 1),
+function l({ label: e }) {
+	let [t, o] = n(0);
+	return /* @__PURE__ */ a(r, { children: [
+		/* @__PURE__ */ i("button", {
+			onClick: () => o(t + 1),
 			children: "+1"
 		}),
-		/* @__PURE__ */ i("p", {
-			className: s.label,
+		/* @__PURE__ */ a("p", {
+			className: c.label,
 			children: ["label = ", e]
 		}),
-		/* @__PURE__ */ i("p", {
-			className: s.p,
-			children: ["count = ", a]
+		/* @__PURE__ */ a("p", {
+			className: c.p,
+			children: ["count = ", t]
 		})
 	] });
 }
 //#endregion
 //#region src/layout/UI/Logo.tsx
-function l({ size: t = 26 }) {
-	let n = e();
-	return /* @__PURE__ */ i("svg", {
+function u({ size: e = 26 }) {
+	let n = t();
+	return /* @__PURE__ */ a("svg", {
 		xmlns: "http://www.w3.org/2000/svg",
 		viewBox: "0 0 512 512",
-		width: t,
-		height: t,
+		width: e,
+		height: e,
 		"aria-hidden": "true",
 		children: [
-			/* @__PURE__ */ r("defs", { children: /* @__PURE__ */ i("linearGradient", {
+			/* @__PURE__ */ i("defs", { children: /* @__PURE__ */ a("linearGradient", {
 				id: n,
 				x1: "0%",
 				y1: "0%",
 				x2: "100%",
 				y2: "100%",
-				children: [/* @__PURE__ */ r("stop", {
+				children: [/* @__PURE__ */ i("stop", {
 					offset: "0%",
 					stopColor: "#3567D6"
-				}), /* @__PURE__ */ r("stop", {
+				}), /* @__PURE__ */ i("stop", {
 					offset: "100%",
 					stopColor: "#2850AD"
 				})]
 			}) }),
-			/* @__PURE__ */ r("rect", {
+			/* @__PURE__ */ i("rect", {
 				x: "0",
 				y: "0",
 				width: "512",
@@ -58,31 +58,31 @@ function l({ size: t = 26 }) {
 				rx: "112",
 				fill: `url(#${n})`
 			}),
-			/* @__PURE__ */ i("g", {
+			/* @__PURE__ */ a("g", {
 				stroke: "#FFFFFF",
 				strokeOpacity: "0.55",
 				strokeWidth: "14",
 				strokeLinecap: "round",
 				children: [
-					/* @__PURE__ */ r("line", {
+					/* @__PURE__ */ i("line", {
 						x1: "160",
 						y1: "150",
 						x2: "256",
 						y2: "256"
 					}),
-					/* @__PURE__ */ r("line", {
+					/* @__PURE__ */ i("line", {
 						x1: "352",
 						y1: "150",
 						x2: "256",
 						y2: "256"
 					}),
-					/* @__PURE__ */ r("line", {
+					/* @__PURE__ */ i("line", {
 						x1: "150",
 						y1: "352",
 						x2: "256",
 						y2: "256"
 					}),
-					/* @__PURE__ */ r("line", {
+					/* @__PURE__ */ i("line", {
 						x1: "360",
 						y1: "356",
 						x2: "256",
@@ -90,32 +90,32 @@ function l({ size: t = 26 }) {
 					})
 				]
 			}),
-			/* @__PURE__ */ i("g", {
+			/* @__PURE__ */ a("g", {
 				fill: "#FFFFFF",
 				children: [
-					/* @__PURE__ */ r("circle", {
+					/* @__PURE__ */ i("circle", {
 						cx: "160",
 						cy: "150",
 						r: "34"
 					}),
-					/* @__PURE__ */ r("circle", {
+					/* @__PURE__ */ i("circle", {
 						cx: "352",
 						cy: "150",
 						r: "34"
 					}),
-					/* @__PURE__ */ r("circle", {
+					/* @__PURE__ */ i("circle", {
 						cx: "150",
 						cy: "352",
 						r: "34"
 					}),
-					/* @__PURE__ */ r("circle", {
+					/* @__PURE__ */ i("circle", {
 						cx: "360",
 						cy: "356",
 						r: "34"
 					})
 				]
 			}),
-			/* @__PURE__ */ r("circle", {
+			/* @__PURE__ */ i("circle", {
 				cx: "256",
 				cy: "256",
 				r: "56",
@@ -124,34 +124,34 @@ function l({ size: t = 26 }) {
 		]
 	});
 }
-var u = {
+var d = {
 	header: "_header_1jeah_1",
 	title: "_title_1jeah_19",
 	menuButton: "_menuButton_1jeah_37"
 };
 //#endregion
 //#region src/layout/Header/Header.tsx
-function d({ isSidebarOpen: e, onToggleSidebar: t, title: n = "UFDB GUI APP", logo: a = /* @__PURE__ */ r(l, {}) }) {
-	return /* @__PURE__ */ i("header", {
-		className: u.header,
+function f({ isSidebarOpen: e, onToggleSidebar: t, title: n = "UFDB GUI APP", logo: r = /* @__PURE__ */ i(u, {}) }) {
+	return /* @__PURE__ */ a("header", {
+		className: d.header,
 		children: [
-			/* @__PURE__ */ r("button", {
+			/* @__PURE__ */ i("button", {
 				type: "button",
-				className: u.menuButton,
+				className: d.menuButton,
 				onClick: t,
 				"aria-label": "操作パネルの表示切り替え",
 				"aria-pressed": e,
 				children: "☰"
 			}),
-			a,
-			/* @__PURE__ */ r("h1", {
-				className: u.title,
+			r,
+			/* @__PURE__ */ i("h1", {
+				className: d.title,
 				children: n
 			})
 		]
 	});
 }
-var f = {
+var p = {
 	sidePanel: "_sidePanel_czpv0_1",
 	closed: "_closed_czpv0_27",
 	row: "_row_czpv0_37",
@@ -159,35 +159,35 @@ var f = {
 };
 //#endregion
 //#region src/layout/SidePanel/SidePanel.tsx
-function p({ isOpen: e, children: t }) {
-	return /* @__PURE__ */ r("aside", {
-		className: `${f.sidePanel} ${e ? "" : f.closed}`,
+function m({ isOpen: e, children: t }) {
+	return /* @__PURE__ */ i("aside", {
+		className: `${p.sidePanel} ${e ? "" : p.closed}`,
 		children: t
 	});
 }
-var m = { button: "_button_a2nkt_1" };
+var h = { button: "_button_a2nkt_1" };
 //#endregion
 //#region src/layout/UI/Button.tsx
-function h({ text: e, type: t = "button", onClick: n }) {
-	return /* @__PURE__ */ r("button", {
-		className: m.button,
+function g({ text: e, type: t = "button", onClick: n }) {
+	return /* @__PURE__ */ i("button", {
+		className: h.button,
 		type: t,
 		onClick: n,
 		children: e
 	});
 }
-var g = { input: "_input_1if7a_1" };
+var _ = { input: "_input_1if7a_1" };
 //#endregion
 //#region src/layout/UI/Input.tsx
-function _({ value: e, onChange: t, placeholder: n }) {
-	return /* @__PURE__ */ r("input", {
-		className: g.input,
+function v({ value: e, onChange: t, placeholder: n }) {
+	return /* @__PURE__ */ i("input", {
+		className: _.input,
 		value: e,
 		onChange: (e) => t(e.target.value),
 		placeholder: n
 	});
 }
-var v = {
+var y = {
 	wrapper: "_wrapper_xhnes_1",
 	form: "_form_xhnes_31",
 	formTitle: "_formTitle_xhnes_41",
@@ -195,28 +195,28 @@ var v = {
 };
 //#endregion
 //#region src/layout/InsertKeyForm/InsertKeyForm.tsx
-function y({ onSubmit: e }) {
-	let [n, a] = t("");
-	return /* @__PURE__ */ r("div", {
-		className: v.wrapper,
-		children: /* @__PURE__ */ i("form", {
-			className: v.form,
-			onSubmit: (t) => {
-				t.preventDefault(), e(n);
+function b({ onSubmit: e }) {
+	let [t, r] = n("");
+	return /* @__PURE__ */ i("div", {
+		className: y.wrapper,
+		children: /* @__PURE__ */ a("form", {
+			className: y.form,
+			onSubmit: (n) => {
+				n.preventDefault(), e(t);
 			},
 			children: [
-				/* @__PURE__ */ r("h3", {
-					className: v.formTitle,
+				/* @__PURE__ */ i("h3", {
+					className: y.formTitle,
 					children: "キーの挿入"
 				}),
-				/* @__PURE__ */ r("p", { children: "任意の文字列を入力しInsertしてください。右側に新たなキーが表示されます。既に存在しているキーを入力してInsertした場合は変化はありません。" }),
-				/* @__PURE__ */ i("div", {
-					className: v.row,
-					children: [/* @__PURE__ */ r(_, {
-						value: n,
-						onChange: a,
+				/* @__PURE__ */ i("p", { children: "任意の文字列を入力しInsertしてください。右側に新たなキーが表示されます。既に存在しているキーを入力してInsertした場合は変化はありません。" }),
+				/* @__PURE__ */ a("div", {
+					className: y.row,
+					children: [/* @__PURE__ */ i(v, {
+						value: t,
+						onChange: r,
 						placeholder: "Enter a key..."
-					}), /* @__PURE__ */ r(h, {
+					}), /* @__PURE__ */ i(g, {
 						text: "insert",
 						type: "submit"
 					})]
@@ -227,57 +227,57 @@ function y({ onSubmit: e }) {
 }
 //#endregion
 //#region src/_components/ComboBox.tsx
-function b({ value: t, onChange: a, placeholder: o, options: s }) {
-	let c = e(), l = s.flat().toSorted();
-	return /* @__PURE__ */ i(n, { children: [/* @__PURE__ */ r("input", {
+function x({ value: e, onChange: n, placeholder: o, options: s }) {
+	let c = t(), l = s.flat().toSorted();
+	return /* @__PURE__ */ a(r, { children: [/* @__PURE__ */ i("input", {
 		list: c,
-		value: t,
-		onChange: (e) => a(e.target.value),
+		value: e,
+		onChange: (e) => n(e.target.value),
 		placeholder: o
-	}), /* @__PURE__ */ r("datalist", {
+	}), /* @__PURE__ */ i("datalist", {
 		id: c,
-		children: l.map((e) => /* @__PURE__ */ r("option", { value: e }))
+		children: l.map((e) => /* @__PURE__ */ i("option", { value: e }))
 	})] });
 }
-var x = {
+var S = {
 	form: "_form_18szc_1",
 	formTitle: "_formTitle_18szc_11",
 	row: "_row_18szc_19"
 };
 //#endregion
 //#region src/layout/MergeForm/MergeForm.tsx
-function S({ onSubmit: e, options: n }) {
-	let [a, o] = t(""), [s, c] = t("");
-	return /* @__PURE__ */ r("div", {
-		className: x.wrapper,
-		children: /* @__PURE__ */ i("form", {
-			className: x.form,
+function C({ onSubmit: e, options: t }) {
+	let [r, o] = n(""), [s, c] = n("");
+	return /* @__PURE__ */ i("div", {
+		className: S.wrapper,
+		children: /* @__PURE__ */ a("form", {
+			className: S.form,
 			onSubmit: (t) => {
-				t.preventDefault(), e(a, s);
+				t.preventDefault(), e(r, s);
 			},
 			children: [
-				/* @__PURE__ */ r("h3", {
-					className: x.formTitle,
+				/* @__PURE__ */ i("h3", {
+					className: S.formTitle,
 					children: "マージ"
 				}),
-				/* @__PURE__ */ r("p", { children: "キーのうち、任意のものを2つ入力しMergeしてください。一つのグループに統合されます。" }),
-				/* @__PURE__ */ r("p", { children: "存在しないキーを入力した場合、キーを新たに作成したうえで統合されます" }),
-				/* @__PURE__ */ i("div", {
-					className: x.row,
+				/* @__PURE__ */ i("p", { children: "キーのうち、任意のものを2つ入力しMergeしてください。一つのグループに統合されます。" }),
+				/* @__PURE__ */ i("p", { children: "存在しないキーを入力した場合、キーを新たに作成したうえで統合されます" }),
+				/* @__PURE__ */ a("div", {
+					className: S.row,
 					children: [
-						/* @__PURE__ */ r(b, {
-							value: a,
+						/* @__PURE__ */ i(x, {
+							value: r,
 							onChange: o,
 							placeholder: "Enter a key...",
-							options: n
+							options: t
 						}),
-						/* @__PURE__ */ r(b, {
+						/* @__PURE__ */ i(x, {
 							value: s,
 							onChange: c,
 							placeholder: "Enter a key...",
-							options: n
+							options: t
 						}),
-						/* @__PURE__ */ r(h, {
+						/* @__PURE__ */ i(g, {
 							text: "Merge",
 							type: "submit"
 						})
@@ -289,7 +289,7 @@ function S({ onSubmit: e, options: n }) {
 }
 //#endregion
 //#region src/styles/groupPalette.ts
-var C = [
+var w = [
 	"#f87171",
 	"#fb923c",
 	"#facc15",
@@ -301,121 +301,144 @@ var C = [
 ];
 //#endregion
 //#region src/util/groupColor.ts
-function w(e) {
-	if (e.length === 0) return C[0];
+function T(e) {
+	if (e.length === 0) return w[0];
 	let t = [...e].sort()[0], n = 0;
 	for (let e = 0; e < t.length; e++) {
 		let r = t.charCodeAt(e);
 		n = n * 31 + r | 0;
 	}
-	return C[(n >>> 0) % C.length];
+	return w[(n >>> 0) % w.length];
 }
-var T = {
+var E = {
 	groups: "_groups_1662l_1",
 	group: "_group_1662l_1",
 	node: "_node_1662l_29"
 };
 //#endregion
 //#region src/layout/Groups/Groups.tsx
-function E({ groups: e }) {
-	return /* @__PURE__ */ r("div", {
-		className: T.groups,
+function D({ groups: e }) {
+	return /* @__PURE__ */ i("div", {
+		className: E.groups,
 		children: e.map((e) => {
-			let t = w(e);
-			return /* @__PURE__ */ r("div", {
+			let t = T(e);
+			return /* @__PURE__ */ i("div", {
 				style: { "--group-color": t },
-				className: T.group,
-				children: e.map((e) => /* @__PURE__ */ r("p", {
-					className: T.node,
+				className: E.group,
+				children: e.map((e) => /* @__PURE__ */ i("p", {
+					className: E.node,
 					children: e
 				}, e))
 			}, e[0]);
 		})
 	});
 }
-var D = {
-	wrapper: "_wrapper_wd859_1",
-	menu: "_menu_wd859_21",
-	actions: "_actions_wd859_61",
-	item: "_item_wd859_79",
-	active: "_active_wd859_115",
-	icon: "_icon_wd859_127",
-	divider: "_divider_wd859_139",
-	toggle: "_toggle_wd859_153",
-	segment: "_segment_wd859_167",
-	selected: "_selected_wd859_189",
-	popover: "_popover_wd859_201",
-	close: "_close_wd859_225",
-	result: "_result_wd859_263"
-}, O = [
-	{
+var O = {
+	wrapper: "_wrapper_zfkdv_1",
+	menu: "_menu_zfkdv_21",
+	actions: "_actions_zfkdv_61",
+	item: "_item_zfkdv_79",
+	active: "_active_zfkdv_115",
+	icon: "_icon_zfkdv_127",
+	divider: "_divider_zfkdv_153",
+	toggle: "_toggle_zfkdv_167",
+	segment: "_segment_zfkdv_181",
+	selected: "_selected_zfkdv_203",
+	popover: "_popover_zfkdv_215",
+	close: "_close_zfkdv_239",
+	result: "_result_zfkdv_277"
+};
+//#endregion
+//#region src/_components/layout/MenuPanel.tsx
+function k({ children: e }) {
+	return /* @__PURE__ */ i("svg", {
+		viewBox: "0 0 24 24",
+		fill: "none",
+		stroke: "currentColor",
+		strokeWidth: "2",
+		strokeLinecap: "round",
+		strokeLinejoin: "round",
+		"aria-hidden": "true",
+		children: e
+	});
+}
+var A = [
+	[{
 		id: "insert",
-		icon: "+",
+		icon: /* @__PURE__ */ i(k, { children: /* @__PURE__ */ i("path", { d: "M12 5v14M5 12h14" }) }),
 		label: "Insert"
-	},
-	{
+	}, {
+		id: "delete",
+		icon: /* @__PURE__ */ i(k, { children: /* @__PURE__ */ i("path", { d: "M5 12h14" }) }),
+		label: "Delete"
+	}],
+	[{
 		id: "merge",
-		icon: "⇄",
+		icon: /* @__PURE__ */ i(k, { children: /* @__PURE__ */ i("path", { d: "M9 17H7A5 5 0 0 1 7 7h2M15 7h2a5 5 0 0 1 0 10h-2M8 12h8" }) }),
 		label: "Merge"
-	},
-	{
+	}, {
+		id: "unmerge",
+		icon: /* @__PURE__ */ i(k, { children: /* @__PURE__ */ i("path", { d: "M9 17H7A5 5 0 0 1 7 7M15 7h2a5 5 0 0 1 4 8M8 12h4M2 2l20 20" }) }),
+		label: "Unmerge"
+	}],
+	[{
 		id: "same",
-		icon: "=",
+		icon: /* @__PURE__ */ i(k, { children: /* @__PURE__ */ i("path", { d: "M5 9h14M5 15h14" }) }),
 		label: "Same"
-	}
-], k = ["row", "graph"];
-function A({ active: e, onSelect: t, mode: n, onChangeMode: a, children: o }) {
-	return /* @__PURE__ */ i("div", {
-		className: D.wrapper,
-		children: [/* @__PURE__ */ i("nav", {
-			className: D.menu,
+	}]
+], j = ["row", "graph"];
+function M({ active: t, onSelect: n, mode: r, onChangeMode: o, children: s }) {
+	return /* @__PURE__ */ a("div", {
+		className: O.wrapper,
+		children: [/* @__PURE__ */ a("nav", {
+			className: O.menu,
 			children: [
-				/* @__PURE__ */ r("ul", {
-					className: D.actions,
-					children: O.map((n) => /* @__PURE__ */ r("li", { children: /* @__PURE__ */ i("button", {
+				A.map((r, o) => /* @__PURE__ */ a(e, { children: [o > 0 && /* @__PURE__ */ i("hr", { className: O.divider }), /* @__PURE__ */ i("ul", {
+					className: O.actions,
+					children: r.map((e) => /* @__PURE__ */ i("li", { children: /* @__PURE__ */ a("button", {
 						type: "button",
-						className: `${D.item} ${e === n.id ? D.active : ""}`,
-						"aria-pressed": e === n.id,
-						onClick: () => t(e === n.id ? null : n.id),
-						children: [/* @__PURE__ */ r("span", {
-							className: D.icon,
-							children: n.icon
-						}), n.label]
-					}) }, n.id))
-				}),
-				/* @__PURE__ */ r("hr", { className: D.divider }),
-				/* @__PURE__ */ r("div", {
-					className: D.toggle,
+						className: `${O.item} ${t === e.id ? O.active : ""}`,
+						"aria-pressed": t === e.id,
+						onClick: () => n(t === e.id ? null : e.id),
+						children: [/* @__PURE__ */ i("span", {
+							className: O.icon,
+							children: e.icon
+						}), e.label]
+					}) }, e.id))
+				})] }, r[0].id)),
+				/* @__PURE__ */ i("hr", { className: O.divider }),
+				/* @__PURE__ */ i("div", {
+					className: O.toggle,
 					role: "group",
 					"aria-label": "表示の切り替え",
-					children: k.map((e) => /* @__PURE__ */ r("button", {
+					children: j.map((e) => /* @__PURE__ */ i("button", {
 						type: "button",
-						className: `${D.segment} ${n === e ? D.selected : ""}`,
-						"aria-pressed": n === e,
-						onClick: () => a(e),
+						className: `${O.segment} ${r === e ? O.selected : ""}`,
+						"aria-pressed": r === e,
+						onClick: () => o(e),
 						children: e
 					}, e))
 				})
 			]
-		}), e && /* @__PURE__ */ i("section", {
-			className: D.popover,
-			children: [/* @__PURE__ */ r("button", {
+		}), t && /* @__PURE__ */ a("section", {
+			className: O.popover,
+			children: [/* @__PURE__ */ i("button", {
 				type: "button",
-				className: D.close,
+				className: O.close,
 				"aria-label": "閉じる",
-				onClick: () => t(null),
+				onClick: () => n(null),
 				children: "×"
-			}), o]
+			}), s]
 		})]
 	});
 }
-var j = {
+var N = {
 	wrapper: "_wrapper_10kdc_1",
 	node: "_node_10kdc_11",
 	label: "_label_10kdc_39",
 	edge: "_edge_10kdc_71"
-}, M = 80, N = 120, P = 20;
-function F(e) {
+}, P = 80, F = 120, I = 20;
+function L(e) {
 	let t = /* @__PURE__ */ new Map();
 	for (let n of e.nodes) t.set(n, []);
 	for (let { source: n, target: r } of e.edges) t.get(n).push(r), t.get(r).push(n);
@@ -429,54 +452,54 @@ function F(e) {
 			for (let e of o) for (let i of t.get(e)) n.has(i) || (n.add(i), r.push(i));
 			o = r;
 		}
-		let s = e.flat(), c = Math.max(...e.map((e) => e.length)) * M;
+		let s = e.flat(), c = Math.max(...e.map((e) => e.length)) * P;
 		e.forEach((e, t) => {
-			let n = e.length * M;
+			let n = e.length * P;
 			e.forEach((e, a) => {
 				r.push({
 					key: e,
-					x: i + (c - n) / 2 + a * M,
-					y: t * N,
+					x: i + (c - n) / 2 + a * P,
+					y: t * F,
 					group: s
 				});
 			});
-		}), i += c + P;
+		}), i += c + I;
 	}
 	return r;
 }
 //#endregion
 //#region src/_components/views/Graph.tsx
-function I({ graph: e }) {
-	let t = F(e), n = new Map(t.map((e) => [e.key, w(e.group)])), i = F(e).map((e) => ({
+function R({ graph: e }) {
+	let t = L(e), n = new Map(t.map((e) => [e.key, T(e.group)])), r = L(e).map((e) => ({
 		id: e.key,
 		position: {
 			x: e.x,
 			y: e.y
 		},
-		data: { label: /* @__PURE__ */ r("span", {
-			className: j.label,
+		data: { label: /* @__PURE__ */ i("span", {
+			className: N.label,
 			title: e.key,
 			children: e.key
 		}) },
-		className: j.node,
+		className: N.node,
 		style: { "--group-color": n.get(e.key) }
-	})), s = e.edges.map((e) => ({
+	})), a = e.edges.map((e) => ({
 		id: `${e.source}-${e.target}`,
 		source: e.source,
 		target: e.target,
-		className: j.edge,
+		className: N.edge,
 		type: "straight",
 		style: { stroke: n.get(e.source) }
 	}));
-	return /* @__PURE__ */ r("div", {
-		className: j.wrapper,
-		children: /* @__PURE__ */ r(o, {
-			nodes: i,
-			edges: s,
+	return /* @__PURE__ */ i("div", {
+		className: N.wrapper,
+		children: /* @__PURE__ */ i(s, {
+			nodes: r,
+			edges: a,
 			fitView: !0,
-			children: /* @__PURE__ */ r(a, {})
+			children: /* @__PURE__ */ i(o, {})
 		})
 	});
 }
 //#endregion
-export { h as Button, c as Dummy, I as Graph, E as Groups, d as Header, y as InsertKeyForm, l as Logo, A as MenuPanel, S as MergeForm, p as SidePanel, w as groupColor };
+export { g as Button, l as Dummy, R as Graph, D as Groups, f as Header, b as InsertKeyForm, u as Logo, M as MenuPanel, C as MergeForm, m as SidePanel, T as groupColor };

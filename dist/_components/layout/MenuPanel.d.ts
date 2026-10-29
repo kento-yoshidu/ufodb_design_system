@@ -1,5 +1,5 @@
-import type { ReactNode } from "react";
-export type Action = "insert" | "merge" | "same";
+import { type ReactNode } from "react";
+export type Action = "insert" | "merge" | "same" | "unmerge" | "delete";
 export type Mode = "row" | "graph";
 type Props = {
     active: Action | null;
