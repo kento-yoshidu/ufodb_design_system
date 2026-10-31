@@ -385,6 +385,10 @@ var A = [
 		id: "same",
 		icon: /* @__PURE__ */ i(k, { children: /* @__PURE__ */ i("path", { d: "M5 9h14M5 15h14" }) }),
 		label: "Same"
+	}, {
+		id: "size",
+		icon: /* @__PURE__ */ i(k, { children: /* @__PURE__ */ i("path", { d: "M4 9h16M4 15h16M10 3 8 21M16 3l-2 18" }) }),
+		label: "Size"
 	}]
 ], j = ["row", "graph"];
 function M({ active: t, onSelect: n, mode: r, onChangeMode: o, children: s }) {

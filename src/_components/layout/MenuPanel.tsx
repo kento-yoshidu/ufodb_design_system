@@ -60,6 +60,11 @@ const actionGroups: { id: Action; icon: ReactNode; label: string }[][] = [
       icon: <Icon><path d="M5 9h14M5 15h14" /></Icon>,
       label: "Same",
     },
+    {
+      id: "size",
+      icon: <Icon><path d="M4 9h16M4 15h16M10 3 8 21M16 3l-2 18" /></Icon>,
+      label: "Size",
+    },
   ],
 ];
 
