@@ -1,7 +1,7 @@
 import { Fragment, type ReactNode } from "react";
 import styles from "./menuPanel.module.css";
 
-export type Action = "insert" | "merge" | "same" | "unmerge" | "delete";
+export type Action = "insert" | "merge" | "same" | "size" | "unmerge" | "delete";
 export type Mode = "row" | "graph";
 
 type Props = {
